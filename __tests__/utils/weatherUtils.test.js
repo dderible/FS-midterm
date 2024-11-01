@@ -1,3 +1,4 @@
+/* was this supposed to be named weather utils? or leftover code? */
 const { Cuisines, Dishes } = require("../../utils/data");
 const { generateRandomMenuItem, generateMenu, selectRandomCuisine } = require("../../utils/restaurantUtils");
 
