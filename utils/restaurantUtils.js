@@ -6,7 +6,10 @@ const { Dishes, Cuisines, Restaurants } = require("./data");
  * @returns {*} A random menu item with a name, description, price, and special status.
  */
 function generateRandomMenuItem(cuisine) {
-  // Implementation here...
+  const randomMenuItem = Dishes[cuisine][Math.floor(Math.random() * Dishes[cuisine].length)];
+  const price = (Math.random() * 20 + 5 ).toFixed(2);
+  const dailySpecialChance = Math.random() > 0.42;
+  return {...randomMenuItem, price, dailySpecialChance};
 }
 
 /**
@@ -14,7 +17,8 @@ function generateRandomMenuItem(cuisine) {
  * @returns {*} A random cuisine type.
  */
 function selectRandomCuisine() {
-  // Implementation here...
+  const randomCuisine = Cuisines[Math.floor(Math.random() * Cuisines.length)];
+  return randomCuisine;
 }
 
 /**
