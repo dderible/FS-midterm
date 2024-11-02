@@ -5,6 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
     </head>
     <body>
+        <a href="menualerts.ejs">Menu Alerts</a>
         <main class="main-content">
             <h1>Restaurant Menus</h1>
             <h2>Please choose your restaurant to get the menu</h2>
@@ -17,6 +18,11 @@
                 </select>
                 <button type="submit">Get the menu!</button>
             </form>
+            <div class="randomitem">
+                <h2>Interested in our deal of the day? Check this out!</h2>
+                <i>Check out this <%= randomItem.name %> from <%= restaurantName %>!</i>
+                <i><%= randomItem.description %> - <%= randomCuisine %> - <%= randomItem.price %></i>
+            </div>
         </main>
     </body>
 </html>

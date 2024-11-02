@@ -15,7 +15,17 @@ app.use(express.static('public'));
  * Renders the homepage that lists cities and restaurant names.
  */
 app.get('/', (request, response) => {
-    response.render('index', { restaurants: Restaurants });
+
+  const randomRestaurant =
+    restaurantData[Math.floor(Math.random() * restaurantData.length)];
+
+    const randomCuisine = randomRestaurant.cuisine;
+
+    const restaurantName = randomRestaurant.name;
+
+    const randomItem = generateRandomMenuItem(randomCuisine);
+
+    response.render('index', { restaurants: Restaurants, randomCuisine, restaurantName, randomItem });
   });
   
   /**
