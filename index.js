@@ -35,7 +35,14 @@ app.get('/', (request, response) => {
    */
   app.get('/restaurant', (request, response) => {
     const restaurantId = request.query.restaurantId;
-    console.log(`restaurantId: ${restaurantId}`);
+    const restaurant = Restaurants.find((r) => r.id === restaurantId);
+    if (restaurant) {
+      const menuData = generateMenu();
+      response.render("restaurantmenu", {restaurantId: restaurant.name, randomCuisine: restaurant.cuisine, randomMenu: restaurant.menu, specials,
+      });
+    } else {
+      response.status(404).send('ERROR: Restaurant Not Found!');
+    }
     //Get the restaurants menu, and then display the page
   });
 
