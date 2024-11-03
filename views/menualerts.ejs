@@ -6,7 +6,31 @@
     </head>
     <body>
         <main class="main-content">
-            <h1>Alerts Page - Maybe I'll Finish This Porject This Time</h1>
+            <h1>TODAY'S SPECIALS!</h1>
+            <ul>
+                <% specialMenu.forEach((item)=> { %>
+                    <h2>
+                        <%= restaurantName %>'s offerings:
+                    </h2>
+                    <% if (restaurant.specials.length> 0) { %>
+                    <li>
+                        <p>
+                            Item: <%= special.name %>
+                        </p>
+                        <p>
+                            Description: <%= special.description %>
+                        </p>
+                        <p>
+                            Price: <%= special.price %>
+                        </p>
+                    </li>
+                    <% } else { %>
+                            <li>
+                                <p>No specials being offered. Please check back another day!</p>
+                                <% } %>
+                            </li>
+                        <% }); %>
+            </ul>
         </main>
     </body>
 </html>

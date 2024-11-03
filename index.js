@@ -33,7 +33,7 @@ app.get('/', (request, response) => {
    * Displays a specific restaurant's random menu.
    * The cuisine is randomly selected and a menu is generated based on it.
    */
-  app.get('/restaurant', (request, response) => {
+  app.get('/restaurantmenu', (request, response) => {
     const restaurantId = request.query.restaurantId;
     const restaurant = Restaurants.find((r) => r.id === restaurantId);
     if (restaurant) {
@@ -47,6 +47,16 @@ app.get('/', (request, response) => {
   });
 
   //Add any other required routes here
+  app.get('/menualerts', (request, response) => {
+    const specialmenu = restaurantData.map((restaurant) => {
+      const specials = restaurant.menu.filter((item) => item.special);
+    return {
+      name: restaurant.name,
+      specials,
+      };
+    });
+    response.render("menualerts", { specialMenu });
+  });
 
 const port = 3000;
 app.listen(port, () => {
