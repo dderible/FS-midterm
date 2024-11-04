@@ -7,30 +7,30 @@
     <body>
         <main class="main-content">
             <h1>TODAY'S SPECIALS!</h1>
-            <ul>
                 <% specialMenu.forEach((item)=> { %>
                     <h2>
                         <%= restaurantName %>'s offerings:
                     </h2>
                     <% if (restaurant.specials.length> 0) { %>
-                    <li>
-                        <p>
-                            Item: <%= special.name %>
-                        </p>
-                        <p>
-                            Description: <%= special.description %>
-                        </p>
-                        <p>
-                            Price: <%= special.price %>
-                        </p>
-                    </li>
-                    <% } else { %>
+                        <ul>
                             <li>
-                                <p>No specials being offered. Please check back another day!</p>
-                                <% } %>
+                                <p>
+                                    Item: <%= special.name %>
+                                </p>
+                                <p>
+                                    Description: <%= special.description %>
+                                </p>
+                                <p>
+                                    Price: <%= special.price %>
+                                </p>
                             </li>
-                        <% }); %>
-            </ul>
+                            <% } else { %>
+                                    <li>
+                                        <p>No specials being offered. Please check back another day!</p>
+                                        <% } %>
+                                    </li>
+                                <% }); %>
+                        </ul>
         </main>
     </body>
 </html>

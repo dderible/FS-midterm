@@ -38,8 +38,7 @@ app.get('/', (request, response) => {
     const restaurant = Restaurants.find((r) => r.id === restaurantId);
     if (restaurant) {
       const menuData = generateMenu();
-      response.render("restaurantmenu", {restaurantId: restaurant.name, randomCuisine: restaurant.cuisine, randomMenu: restaurant.menu, specials,
-      });
+      response.render("restaurantmenu", {restaurantId: restaurant.name, randomCuisine: restaurant.cuisine, randomMenu: restaurant.menu, specials});
     } else {
       response.status(404).send('ERROR: Restaurant Not Found!');
     }
@@ -51,9 +50,7 @@ app.get('/', (request, response) => {
     const specialmenu = restaurantData.map((restaurant) => {
       const specials = restaurant.menu.filter((item) => item.special);
     return {
-      name: restaurant.name,
-      specials,
-      };
+      name: restaurant.name, specials};
     });
     response.render("menualerts", { specialMenu });
   });
